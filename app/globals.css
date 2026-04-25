@@ -1,0 +1,186 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0f1117;
+  --panel: #161922;
+  --panel-2: #1d2230;
+  --border: #262b3a;
+  --accent: #6c63ff;
+  --accent-2: #8b80ff;
+  --ink: #e6e8ee;
+  --muted: #8a90a3;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: rgba(108, 99, 255, 0.35);
+  color: #fff;
+}
+
+/* Subtle scrollbar */
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background: #2a3043;
+  border-radius: 999px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: #353c55;
+}
+
+/* Highlighted match in test text */
+.match {
+  background: rgba(108, 99, 255, 0.22);
+  border-bottom: 1px solid rgba(139, 128, 255, 0.7);
+  border-radius: 3px;
+  padding: 0 1px;
+}
+.match-alt {
+  background: rgba(108, 99, 255, 0.32);
+}
+
+/* Soft card */
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+.card-2 {
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 11px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--panel-2);
+  color: var(--ink);
+  font-size: 12.5px;
+  transition: all 160ms ease;
+  cursor: pointer;
+  user-select: none;
+}
+.btn:hover {
+  border-color: #3a4159;
+  background: #232838;
+}
+.btn-primary {
+  background: linear-gradient(180deg, #7a72ff 0%, #6058f0 100%);
+  border-color: #5a52e0;
+  color: #fff;
+}
+.btn-primary:hover {
+  filter: brightness(1.07);
+  background: linear-gradient(180deg, #8a82ff 0%, #6e66f4 100%);
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  background: #1f2434;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 140ms ease;
+}
+.chip.active {
+  background: rgba(108, 99, 255, 0.18);
+  color: var(--accent-2);
+  border-color: rgba(108, 99, 255, 0.5);
+}
+.chip:hover {
+  border-color: #3a4159;
+}
+
+/* Inputs */
+.field {
+  width: 100%;
+  background: #0c0e15;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  color: var(--ink);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 13.5px;
+  outline: none;
+  transition: border 140ms ease, box-shadow 140ms ease;
+}
+.field:focus {
+  border-color: rgba(108, 99, 255, 0.6);
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.15);
+}
+
+/* Tab */
+.tab {
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 140ms ease;
+}
+.tab.active {
+  background: #1f2434;
+  color: var(--ink);
+}
+
+/* Animated cursor blink for empty state */
+@keyframes blink {
+  0%, 60% { opacity: 1; }
+  61%, 100% { opacity: 0; }
+}
+.caret {
+  animation: blink 1.1s step-end infinite;
+}
+
+/* Subtle fade-in for results */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(2px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-in {
+  animation: fadeIn 220ms ease;
+}
+
+/* Code block */
+.code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 13px;
+  background: #0a0c12;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 10px;
+  white-space: pre-wrap;
+  word-break: break-all;
+  color: #cdd2dd;
+}
+
+/* Top gradient header glow */
+.headerglow {
+  background: radial-gradient(800px 200px at 50% -50px, rgba(108,99,255,0.18), transparent 60%);
+}
